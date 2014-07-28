@@ -30,6 +30,15 @@
 
 		 return false;
              }
+
+
+	function checkEmail() {
+
+		var email = document.myForm.email.value;
+		var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+	    	return re.test(email);
+		
+	}
 	
 	function openhome()
 	{
@@ -44,7 +53,7 @@ function validateEmail()
    dotpos = emailID.lastIndexOf(".");
    if (atpos < 1 || ( dotpos - atpos < 2 )) 
    {
-       alert("Please enter correct email ID")
+       alert("Invalid email ID")
        document.myForm.email.focus() ;
        return false;
    }
@@ -56,8 +65,9 @@ function validate()
 
      if(submit())
   {
-alert("Mello");
-    document.myForm.submit(); //first submit
+	//alert("Mello");
+   // document.myForm.submit(); //first submit
+	alert("Thank You for your feedback.");
     document.myForm.reset(); //and then reset the form values
   }
 }
@@ -70,6 +80,16 @@ if( document.myForm.name.value == "" )
      alert( "Please provide your name!" );
      document.myForm.name.focus() ;
      return false;
+   } else {
+	
+	  var ck_password =  /^[A-Za-z0-9]/;
+	nametxt = document.myForm.name.value;
+            if(!ck_password.test(nametxt))
+            {
+                alert("Invalid name!");
+		document.myForm.name.focus() ;
+		return false;
+            }
    }
   
    if( document.myForm.email.value == "" )
@@ -79,11 +99,29 @@ if( document.myForm.name.value == "" )
      return false;
    }else{
      // Put extra check for data format
-     var ret = validateEmail();
+     var ret = checkEmail();
      if( ret == false )
      {
-          return false;
+	alert("Invalid email ID")
+	document.myForm.email.focus() ;
+        return false;
      }
+   }
+
+   if( document.myForm.subject.value == "" )
+   {
+
+   } else {
+	
+	  var ck_psword =  /^[A-Za-z0-9][A-Za-z0-9 -]+$/;
+	nametxt = document.myForm.subject.value;
+            if(!ck_psword.test(nametxt))
+            {
+                alert("Invalid subject! ");
+		document.myForm.subject.focus() ;
+		return false;
+            }
+	
    }
 
    if( document.myForm.message.value == "" )
@@ -91,7 +129,18 @@ if( document.myForm.name.value == "" )
      alert( "Please put your message!" );
      document.myForm.message.focus() ;
      return false;
+   } else {
+	  var ck_word =  /^[A-Za-z][A-Za-z0-9 -]+$/;
+	nametxt = document.myForm.message.value;
+            if(!ck_password.test(nametxt))
+            {
+                alert("Invalid Message! ");
+		document.myForm.message.focus() ;
+		return false;
+            }
+	
    }
+
 
    return( true );
 
@@ -151,14 +200,14 @@ right:0;
 }
 
 input {
-margin-bottom:40px;
+margin-bottom:30px;
 background-color:#dcdcdc;
 color:#000;
 font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
 }
 
 textarea{
-margin-bottom:40px;
+margin-bottom:30px;
 	height:200px;
 	width:100%;
 background-color:#dcdcdc;
@@ -233,7 +282,7 @@ font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
 	<body class="cbp-spmenu-push">		
 		<div class="container">
 			<header id="head" class="cbp-spmenu-push" data-id="head">
-			<p style="color:#4e6c81;font-size:30px; margin:0; left:10px; margin-top:8px; padding:0; text-align:justify; font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;">DESIGNTEEZ<p>
+			<img src="img/DesignTeez.png" height="28px" style="margin:10px;">
 			<button id="showRightPush"><img src="img/menu1.png" width="55px" height="55px"></button>
 			</header>
 			<div class="main">
@@ -243,7 +292,7 @@ font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
 		<!--	<a href="#" id="showRight">Home</a>	-->
 			<a href="#" ontouchstart="openhome();return false;">Home</a>
 			<a href="about.html">About Us</a>
-			<a href="Browseone.html">Catlog</a>
+			<a href="Browseone.html">Catalog</a>
 			 <a href="contact.html">Contact Us</a>
 		</nav>
 
@@ -251,52 +300,52 @@ font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
 	<div id="ground">
 <center>
  <form name="myForm" method="post">
-<table width="80%" align="center" style="top:100px;" cell-spacing="10px">
+<table width="90%" align="center" style="top:100px;" cell-spacing="10px">
 <tr><td>
-<p class="torso" style="font-size: 28px;">
+<p class="torso" style="font-size: 18px;">
 Name *
 </p>
 </td></tr>
 <tr>
 <td align="center">
-<input id="name" type="text" name="name" style="width:100%; height:48px; font-size: 28px; line-height:80%; Font size: 48px; box-shadow:#333;  border-top: 0px solid #ffffff; border-left: 0px solid #ffffff; border-right: 0px solid #ffffff; border: 2px solid #FFF;" />
+<input id="name" type="text" name="name" style="width:100%; height:36px; font-size: 18px; line-height:100%; box-shadow:#333;  border-top: 0px solid #ffffff; border-left: 0px solid #ffffff; border-right: 0px solid #ffffff; border: 2px solid #FFF;" />
 </td>
 </tr>
 <tr><td>
-<p class="torso" style="font-size: 28px;">
+<p class="torso" style="font-size: 18px;">
 Email *
 </p>
 </td></tr>
 <tr>
 <td align="center">
-<input id="email" maxlength='50' name="email" type="text" style="width:100%; height:48px; font-size: 28px; line-height:80%; Font size: 48px; box-shadow:#333; border: 2px solid #FFF; onkeypress="return checkFormGeneric();" />
+<input id="email" maxlength='50' name="email" type="email" style="width:100%; height:36px; font-size: 18px; line-height:100%; box-shadow:#333; border: 2px solid #FFF; onkeypress="return checkFormGeneric();" />
 </td>
 </tr>
 <tr><td>
-<p class="torso" style="font-size: 28px;">
+<p class="torso" style="font-size: 18px;">
 Subject
 </p>
 </td></tr>
 <tr>
 <td align="center">
-<input id="sub" name="subject" type="text" style="width:100%; height:48px; font-size: 28px; line-height:80%; Font size: 48px; box-shadow:#333; border: 2px solid #FFF;" />
+<input id="sub" name="subject" type="text" style="width:100%; height:36px; font-size: 18px; line-height:100%; box-shadow:#333; border: 2px solid #FFF;" />
 </td>
 </tr>
 <tr><td>
-<p class="torso" style="font-size: 28px;">
+<p class="torso" style="font-size: 18px;">
 Message *
 </p>
 </td></tr>
 <tr>
 <td align="center">
-<textarea  rows="4" cols="auto" name="message" style="width:100%; font-size: 28px; line-height:80%; Font size: 48px; box-shadow:#333;  border-top: 0px solid #ffffff;
+<textarea  rows="4" cols="auto" name="message" style="width:100%; font-size: 18px; line-height:24px; box-shadow:#333;  border-top: 0px solid #ffffff;
     border-left: 0px solid #ffffff; border-right: 0px solid #ffffff; border: 2px solid #FFF;">
 </textarea>
 </td>
 </tr>
 </table>
 
-<input type="button" style="width:80%; font-size: 28px; height:48px; background-color: #dcdcdc;" id="submit" value="Submit" onclick="validate()"/>
+<input type="button" style="width:60%; font-size: 18px; height:48px; background-color: #dcdcdc;" id="submit" value="Submit" onclick="validate()"/>
 
 <!--	<input type="submit" value="Submit">	-->
 

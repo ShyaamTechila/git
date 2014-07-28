@@ -13,7 +13,7 @@
  
 body.ps-active, body.ps-building, div.ps-active, div.ps-building
 {
-	background: #000;
+	background: #4e6c81;
 	overflow: hidden;
 }
 body.ps-active *, div.ps-active *
@@ -30,22 +30,20 @@ body.ps-active *:focus, div.ps-active *:focus
 /* Document overlay */
 div.ps-document-overlay 
 {
-	background: #000;
+		background: #4e6c81;
 }
 
 
 /* UILayer */
 div.ps-uilayer { 
-	
-	background: #000;
+	background: #4e6c81;
 	cursor: pointer;
-	
 }
 
 
 /* Zoom/pan/rotate layer */
 div.ps-zoom-pan-rotate{
-	background: #000;
+	background: #4e6c81;
 }
 div.ps-zoom-pan-rotate *  { display: block; }
 
@@ -89,8 +87,15 @@ div.ps-caption-content
 	display: block;
 }
 
+.ps-caption{
+opacity:0.8 !important;
+display:block !important;
+}
 
 /* Toolbar */
+
+
+
 div.ps-toolbar
 { 
 	background: #000000;
@@ -104,6 +109,8 @@ div.ps-toolbar
 	height: 44px;
 	display: table;
 	table-layout: fixed;
+	bottom:0;
+	position:fixed;
 }
 div.ps-toolbar * { 
 	display: block;
@@ -173,4 +180,10 @@ div.ps-toolbar-play div.ps-toolbar-content
 		background-size: 176px 88px;
 		background-image: url(icons@2x.png);
 	}
+}
+
+
+.ps-toolbar{
+opacity:0.8 !important;
+
 }
